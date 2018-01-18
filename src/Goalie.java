@@ -1,6 +1,9 @@
 
 public class Goalie extends Player{
     
+    
+    //each child class has different situations applied to them 
+    // in this case its for saving goals and trying to get a shutout
       public String offence(Player p) {
        if(p.Potential().equals("ECHL")){
            health=-2;
@@ -11,7 +14,7 @@ public class Goalie extends Player{
            return name + "is on a 2 on 0 and is ready to stop the one player thats about to shoot but the player passes it for a one timer goal";
        }
        else{ 
-           skill-=5;
+           skill-=7;
            points++;
            return name + "is against the other teams best player who has a breakaway. " + name + " dives out for a flying pokecheck making a huge save for the shutout" ;
            
