@@ -11,8 +11,8 @@ public class Player {
     
     
      public Player(){
-        skill = 0;
-        health = 0;
+        skill = 2;
+        health = 10;
         name = "";
         points = 0;
     }

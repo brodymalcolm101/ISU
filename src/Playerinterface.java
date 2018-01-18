@@ -19,9 +19,16 @@ public class Playerinterface extends javax.swing.JFrame {
         li = list.listIterator();
         curplayer=0;
         totplayer=0;
+        lblpoints.setText("" + totpoints);
+        energy = 0;
+        health= 0;
+        skill = 0;
+        
     }
 
    
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -81,6 +88,11 @@ public class Playerinterface extends javax.swing.JFrame {
         jButton1.setText("Add Player");
 
         jButton2.setText("Delete Player");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         lblpo.setText("Points: ");
 
@@ -294,6 +306,44 @@ public class Playerinterface extends javax.swing.JFrame {
     private void btntrainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntrainActionPerformed
        p.upSkill();
     }//GEN-LAST:event_btntrainActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+          if(totplayer==0)return;
+       
+       li.next();
+       
+     
+       
+       li.remove();
+       totplayer--;
+       
+       
+       if(totplayer==0){
+         txtname.setText("" );
+         lblenergy.setText("");
+         lblskill.setText( "");
+         lblpotential.setText("");
+           return;
+       }
+       
+       else if(curplayer>1){
+           p =(Player)li.previous();
+           curplayer--;
+          txtname.setText("" + p.getName());
+         lblenergy.setText( "" + p.getHealth());
+        lblskill.setText( "" + p.getSkill());
+        lblpotential.setText(p.Potential());
+       }
+       
+       else{
+           li.next();
+           p=(Player) li.previous();
+       }
+        txtname.setText("" + p.getName());
+         lblenergy.setText( "" + p.getHealth());
+        lblskill.setText( "" + p.getSkill());
+        lblpotential.setText(p.Potential());
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
