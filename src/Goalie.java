@@ -1,6 +1,13 @@
 
 public class Goalie extends Player{
     
+     public Goalie(String n, int s, int p){
+        skill = s;
+        name = n;
+        points = p;
+    }
+    
+    
     
     //each child class has different situations applied to them 
     // in this case its for saving goals and trying to get a shutout

@@ -11,6 +11,9 @@ public class Playerinterface extends javax.swing.JFrame {
     int totpoints, energy, health, skill;
     int curplayer, totplayer;
     Player p;
+    Forward f; 
+    Defense d;
+    Goalie g;
     
     
     public Playerinterface() {
@@ -86,6 +89,11 @@ public class Playerinterface extends javax.swing.JFrame {
         lblskill.setOpaque(true);
 
         jButton1.setText("Add Player");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Delete Player");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -344,6 +352,27 @@ public class Playerinterface extends javax.swing.JFrame {
         lblskill.setText( "" + p.getSkill());
         lblpotential.setText(p.Potential());
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+        Addplayer form = new Addplayer(this,true);
+        form.setVisible(true);
+        if(form.getSignal().equals("f")){
+            Forward f = (Forward)form.getPlayer();
+            li.add(f);
+        }
+        else if(form.getSignal().equals("d")){
+            Defense d = (Defense)form.getPlayer();
+            li.add(d);
+        }
+        else{
+            Goalie g = (Goalie)form.getPlayer();
+            li.add(g);
+        }
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

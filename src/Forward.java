@@ -1,6 +1,13 @@
 public class Forward extends Player{
     
    
+     public Forward(String n, int s, int p){
+        skill = s;
+        name = n;
+        points = p;
+    }
+    
+    
        //this situation is for the forward to try and score goals based on potential
     public String offence(Player p) {
        if(p.Potential().equals("ECHL")){

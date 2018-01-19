@@ -1,7 +1,11 @@
 
 public class Defense extends Player{
 
-    
+     public Defense(String n, int s, int p){
+        skill = s;
+        name = n;
+        points = p;
+    }
     
     // this situation is for the defenceman to try to stop forwards from scoring 
     public String defence(Player p) {
